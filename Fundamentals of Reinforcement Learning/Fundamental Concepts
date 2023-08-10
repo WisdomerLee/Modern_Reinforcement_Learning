@@ -50,3 +50,9 @@ Recursive relationship between functions
 
 주어진 환경에서 여러 행동을 반복하여 학습
 Policy gradient, actor critic : on policy model free
+
+1.학습시킬 policy를 초기화
+2.value function 각각 초기화
+3.state space의 모든 가능한 state를 초기화
+4. 매우 큰 숫자의 에피소드(reward를 얻도록 행동하게)를 반복
+5.policy를 이용한 episode를 생성, 
