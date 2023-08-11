@@ -1,0 +1,12 @@
+MC: 보다 복잡한 행동이나 매우 긴 시간동안 실행되어야 할 동작을 학습하는데 한계가 있음
+
+Model free & bootstrapped
+
+특정 시간(에피소드 아님) 마다 value 함수를 업데이트!
+
+learning rate로 학습률을 조정하고
+TD Error라는 것이 있음
+
+Bootstrapped
+평가를 다른 평가 업데이트에 씀
+estimate를 다른 estimate 업데이트에 씀
