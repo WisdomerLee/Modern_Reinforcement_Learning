@@ -1,0 +1,34 @@
+Policy Approximation
+
+
+policy : probability distribution
+agent가 가질 수 있는 state(상태)들의 확률 분포 함수
+policy의 확률은 agent가 각각의 행동을 선택할 때 영향을 줌
+
+Monte Carlo 방식(무작위로 인한 확률 계산)은 결정적(초기 상태 등의 영향이 큼)이고 epsilon soft
+
+policy는 V / Q의 함수
+
+policy에 직접 접근하는 형태
+
+Deep q-learning : Deep Learning Network에서 parameter들의 matrix로 weight들이 matrix에 등장하는데
+
+Gradient ascent in performance J
+gradient ascent를 J에 deep neural network의 parameter들을 업데이트하는데 쓰임
+
+policy gradient methods
+
+policy : 연속적이고 제한적인 함수
+연속적인 action space에 쓸 수 있음
+
+Numerical preference for state action pair
+특정 숫자들의 형태에 따른 상태 행동 짝
+
+Accurate estimate > 연속적인 상태의 함수들은 gradient를 통해 최적의 값을 손쉽게 찾아낼 수 있음
+
+Policy Gradient Methods의 한계
+샘플의 상태에 따라 비효과적일 수 있음(정돈되지 않은 데이터들이라던가)
+Unstable solutions : 파라미터들이 조금만 변경되어도 최적의 값이 크게 요동침...
+learn V, Q가 필요할 수도 있음
+
+gradient J(theta) : states를 마주치는 분포(확률?)에 의존
