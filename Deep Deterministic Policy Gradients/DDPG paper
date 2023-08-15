@@ -33,3 +33,12 @@ buffer, network를 위한 클래스 필요
 MDP : 이미 학습했다고 가정
 Deterministic policy : sample sate with stochastic policy > off policy learning
 deterministic, stochastic action을 같이 얻을 수 있는 방법을 찾아야 함
+
+적용하는 알고리즘
+Actor, Critic : 각각 network를 가짐
+Loss function : 다른 loss function과 연관되어있음 (nested function calls)
+Replay buffer : 크고, 정확하고(정렬되고), 샘플은 균일하게 : earliest memory를 덮어쓰기
+actor, critic의 target network : soft update
+Batch norm : actor, critic network
+actions : critic 상태 뒤에 
+stochastic policy adds : noise function to deterministic policy
