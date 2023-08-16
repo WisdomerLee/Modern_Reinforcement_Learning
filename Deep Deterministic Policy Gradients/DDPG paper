@@ -42,3 +42,9 @@ actor, critic의 target network : soft update
 Batch norm : actor, critic network
 actions : critic 상태 뒤에 
 stochastic policy adds : noise function to deterministic policy
+
+결론 
+
+Algorithm 다양한 환경의 low, high D에도 적용 가능
+항상 learn accurate Q가 맞진 않으나 대개 좋은 policy
+Target network가 batch normalization보다 더 중요함!!
