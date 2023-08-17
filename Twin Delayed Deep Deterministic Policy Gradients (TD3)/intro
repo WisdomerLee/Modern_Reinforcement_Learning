@@ -32,3 +32,11 @@ Agent : 2개의 독립된 critics를 갖고 하나의 actor를 가짐
 Learning function : 2 critics 중에 작은 것을 선택!!
 Actor는 항상 w.r.t를 first critic에 업데이트함 
 단순한 변화에 여러 쓸모없는 단계가 붙음...
+
+error의 증폭은 학습에도 악영향을 줌
+policy update 늦추는 방식을 제안
+target actor의 결과의 노이즈 제거하는 방식도 제안
+minimization operation 추가
+
+테스트 환경 : BipedalWalker-v2 environment
+replay buffer재활용, OU noise는 활용하지 않음
