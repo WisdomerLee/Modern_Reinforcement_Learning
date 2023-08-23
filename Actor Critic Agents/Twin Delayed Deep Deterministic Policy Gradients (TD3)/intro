@@ -1,0 +1,42 @@
+paper
+수학적인 내용이 매우 많은 깊이 있는 논문
+Approximation error and overestimation bias
+접근 에러, bias의 과대 평가
+
+value based estimate : noisy
+값 기반의 평가: 에러(잡음)가 발생할 수 있음
+noise amplified by use of deep neural network
+deep neural network에서 이 에러 자체도 증폭될 수 있음
+maximization bias exists in deterministic policy gradient
+deterministic policy gradient에서 bias의 영향력이 극대화 될 수 있음
+double dqn solution > policy similarities문제로 동작하지 않음
+policy가 비슷하여 double dqn solution이 동작하지 않는 문제 있음
+
+일반적으로 bias의 커다란 영향력과 측정(평가) 에러가 문제
+기존의 연구들도 이 둘의 문제를 해결하기 위해 노력하였으며
+여기서는 Double Q learning이라는 방식이라는 것을 도입
+
+Agent : 초기 상태에서 reward가 최대인 상태를 얻으려고 시도할 것
+neural network > value function, policy쪽으로 접근
+target network를 이용하여 영향력을 극대화 (DDPG)
+
+bias의 overestimate의 영향력은 대부분 learning rate 부분은 실제로 매우 작게 설정하여 반복하게 되는데 이 현상 때문에 
+linear combination으로 진행되는 bias의 영향력이 매우 크게 나타남!!!
+
+bias의 overestimation는 actor critic method에서도 존재함
+Double DQN solution으로는 해결할 수 없음
+기존의 double Q learning은 다양한 해결책을 제시
+2개의 독립적인 critics를 돌리고 그 중 작은 것을 선택 : bias의 영향력을 줄여줌??
+
+Agent : 2개의 독립된 critics를 갖고 하나의 actor를 가짐
+Learning function : 2 critics 중에 작은 것을 선택!!
+Actor는 항상 w.r.t를 first critic에 업데이트함 
+단순한 변화에 여러 쓸모없는 단계가 붙음...
+
+error의 증폭은 학습에도 악영향을 줌
+policy update 늦추는 방식을 제안
+target actor의 결과의 노이즈 제거하는 방식도 제안
+minimization operation 추가
+
+테스트 환경 : BipedalWalker-v2 environment
+replay buffer재활용, OU noise는 활용하지 않음

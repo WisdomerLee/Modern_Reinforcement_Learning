@@ -1,0 +1,23 @@
+Actor Critic Methods
+DDPG
+
+actor network
+critic network
+action noise
+replay buffer
+agent functionality
+Memory, actor/critic networks, target networks, tau(hyper parameter)
+
+actor, critic network 초기화
+target network, weight  main network에서 초기화
+replay buffer R 초기화
+episode 반복
+noise process N for action exploration
+Reset environment
+각 스텝마다
+ take action a_t, 새 상태와 reward 획득
+ (s_t, a_t, r_t, s_t+1, done_t)를 R에 저장
+ Sample random minibatch of (s_i, a_i, r_i, s_i+1, done_i)를 R에서 얻어옴
+ 관계식을 통해 
+ update critic by minimizing
+ update actor

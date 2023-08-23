@@ -1,0 +1,15 @@
+Gradient Ascent in J
+
+J의 함수 중에 pytorch가 계산해주는 파라미터는 우리가 직접 조정할 필요가 없으므로, 
+
+parameter space의 변화 방향과 gradient의 weight를 조정
+
+Algorithm의 진행
+
+Deep Neural Network를 초기화 : model agent's policy
+
+episode 반복
+episode를 생성 : policy를 활용하여 probability(확률) 변화 추적
+각 step마다 agent의 기억에 : episode에서 돌려주는 G 값을 계산
+
+states들의 distribution(분포)는 필요하지 않음
