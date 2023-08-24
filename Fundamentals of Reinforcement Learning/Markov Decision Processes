@@ -1,0 +1,45 @@
+reward : agent의 학습을 가능하게 하는 것 : reward를 최대한 크게!하는 것이 목적
+
+행동은 앞으로 주어질 보상에도 영향을 끼침
+state(상태)는 오직 바로 직전 상태와 행동에만 영향을 받음 
+Markov Decision Process : 수학적인 요약
+
+Action은 state들의 상태 변화를 가져옴
+
+probabilistic transitions 
+해당 state의 probibility는 1이 아니지만
+모든 가능한 state들의 probability들의 합은 1이 됨
+
+이 확률이 dynamics를 결정
+
+예상 보상 : outcome *probability
+
+보상들 > 예측되는 결과 값이 있음
+보상들의 합은 현재 시간에 따라 증가하게 될 것
+
+episode: 게임 플레이들의 구분된 시기들
+
+Episodic game play
+terminal state : 유일
+terminal state에서는 reward가 0이 됨
+
+보상의 총합은 제한적이 됨
+
+모든 일이 에피소드처럼 되지 않음!
+보상을 무한히 더하게 되면 무한히 발산하게 됨...
+그럼 보상의 발산을 어떻게 고치는가???
+discounting : 보상을 깎아야 함
+시간이 지날수록 보상을 기하급수적으로 깎으면!?
+여기에 해당되는 파라미터가 discount factor : gamma
+gamma는 0과 1 사이의 값
+
+gamma : 1인경우 : 매우 오랫동안 지속되어야 할 경우
+0인 경우 : 바로 코 앞의 이득을 위해 곧바로 행동하게 됨
+대부분의 경우 gamma는 0.95와 0.99사이의 값을 가짐
+
+보상 할인의 효과
+
+policy :
+상태에 따른 행동들을 유형화 (확률 분포를 가질 수 있음): 이 유형화의 상태에 따라 같은 상태에 행동이 나타날 수 있는 것들이 확률로 정의 됨
+policy를 결정하는 것은 pi
+
