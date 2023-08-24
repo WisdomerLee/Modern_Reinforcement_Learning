@@ -1,0 +1,69 @@
+
+value functions : 각 시간이 지날 때마다 보상이 주어짐
+
+states (state, action): 각각 가치를 가짐
+
+value function
+pi : 주어진 state에서 action을 선택할 확률!!!
+
+value는 각 state마다 action을 선택하여 얻은 모든 합을 스테이트 별로 모두 더해서 
+
+파라미터 q가 쓰이기 때문에 q learning이라 부름
+
+expectation values??
+probability들 없이 expectation value를 구할 수 있는 방법이 있는가??
+
+주어진 환경과 상호작용 > 그 동작으로 얻은 보상을 계속 추적
+  실행 횟수가 많아질 수록 평균 값(예상되는 값)에 수렴함
+그렇지만... state space가 매우 큰 경우 > 즉 가질 수 있는 상태들이 매우, 특히 거의 무한히 많은 경우에는 적용이 어려움
+parameterize state space : 
+
+Bellman Equation : 
+공식이 매우 복잡해 보이지만 value function 간 재귀적인 관계를 보여줌
+그리고 이것이 우리의 선택을 보다 쉽게 만들어 줌...
+policies들의 rank에 따른 정렬이 있음??
+value function을 이용하여 policy의 랭크를 결정할 수 있을까??
+action을 일부 조율하고 조율 전과 후를 비교
+value function과 q: policy의 랭크에 영향을 줌
+value function의 value값이 커지면 해당 policy는 더 낫다고 볼 수 있음
+적어도 하나의 최선의 policy가 있으면 > optimal policy
+
+Bellman Optimality Equations 
+  v*(s) = 모든 가능한 상태들의 총 합의 최대 값x [reward + gamma * v*(s')]
+  
+value function, 연관된 state들, 모든 가능한 결과의 상태들이 모두 재귀적인 관계로 엮여있음!
+  q*(s,a) = 모든 가능한 상태들의 확률 합 중 최대 값 x [reward + gamma*q*(s', a')]
+policy : v와 q를 가짐
+그리고 policy는 v와 q를 통해 보다 나은 policy인지 순위를 매길 수 있음!!
+Value와 Action Value Function이 있음
+
+경험을 통해 배우는 것
+환경과 상호작용을 하면 그에 따른 보상을 쭉 추적함
+
+agent는 확률적으로 평균적으로 존재하게 되는 확률 상태를 반복되는 과정에서 그 weight를 조정하여 보다 더 나은 보상을 얻도록 행동함!
+
+최적화 시키는 과정은
+policies()를 비교
+알려진 Dynamics > Model 기반
+알 수 없는 Dynamics > Model 없음 : Free Learning
+
+Explore Exploit Dilemma
+Epsilon greedy(Q learning) , Approximate Policy Directly
+하나의 policy > 행동을 만들고 value function을 업데이트함 > On policy : 같은 행동은 같은 결과를 가짐
+하나의 policy > 행동을 만들고 또다른 policy updates value function을 업데이트 > Off policy : 같은 행동이 다른 결과 값을 가질 수 있음
+
+Epsilon Greedy(Q Learning) : off policy learning
+policy gradient : on policy learning
+
+reward의 변화를 꾸준히 추적하여 value와 action value function을 평가
+Recursive relationship between functions
+함수들간의 관계를 반복하여 재조정
+
+주어진 환경에서 여러 행동을 반복하여 학습
+Policy gradient, actor critic : on policy model free
+
+1.학습시킬 policy를 초기화
+2.value function 각각 초기화
+3.state space의 모든 가능한 state를 초기화
+4. 매우 큰 숫자의 에피소드(reward를 얻도록 행동하게)를 반복
+5.policy를 이용한 episode를 생성, 
