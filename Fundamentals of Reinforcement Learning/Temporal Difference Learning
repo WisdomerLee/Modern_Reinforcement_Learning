@@ -1,0 +1,72 @@
+Refining Value Functoin Estimate
+value function estimate를 보다 최적화
+
+new estimate = old estimate + step size(target-old estimate)로 표현할 수 있음
+
+target??
+target : update의 방향 (Direction of update) : 일부 오류 들이 있을 수 있음
+
+R_t
+
+step size??
+control rate of change : 바꾸는 정도를 조절하는 파라미터 :크기는 대체로 매우 작게 조정함
+
+update frequency
+algorithm dependent : 쓰는 알고리즘에 따라 달라짐
+
+Monte Carlo : end of episode
+각 단계마다 나온 최종 (누적이 아닌 최대가 아닌 제일 마지막의)reward의 총합
+
+Temporal Dirrerence Learning
+Q Learning : update at each time step :특정 시간 단계마다 업데이트!
+뒤집어 말하면 Q learning: online learning
+그리고 episode로 나누기 애매한 상황의 학습에 활용하기 좋음
+
+temporal diffrernce updates
+: earlier estimate to update
+Bootstrapping
+Initially estimate??의 중요성
+
+fixed pi, small alpha : converge with good coverage : 보다 많은 상황에 대처하기 좋게 학습함
+수백번 씩 반복하여 방문...할 수도 있음
+Q learning에서는 어떻게??
+
+Application to Q Learning
+action-value function
+
+Q(s_t, a_t) = Q(s_t, a_t) + alpha * (R_t+1+gamma*maxQ(St+1, a_max) -Q(s_t, a_t))
+V(s_t) = V(s_t) + alpha*(R_t+1+gamma*V(s_t+1)-V(s_t))
+
+update equation에서 Q의 max값을 활용
+
+tabular learning method : 매우 적은 state와 action을 가질 경우 쓰는 방법
+tabular learning method는 모든 state와 action의 table의 상태를 기억하고 이들의 변화를 추적함
+agent가 방문한 action과 state의 경우의 수를 모두 파악하므로 
+
+epsilon greedy policy 를 choose action에 활용할 것
+주어진 상태 S에서 Q의 값을 모든 행동에 따라 찾아냄
+max action or random action
+reward를 s,a의 상태의 Q를 업데이트하는데 씀
+table을 reset하지 않아 모든 상태들을 전부 확인할 수 있음
+
+epsilon greedy to update greedy
+off policy learning
+SARSA : On policy
+
+Q-Learning Algorithm
+Q를 모든 state s와 action a에 대해 초기화
+hyper parameter값 초기 값 설정
+처음에 alpha = 0.001, gamma=0.9, epsilon_max=1.0, epsilon_min=0.01
+n-episode 반복
+initialize state s
+각 에피소드 step마다
+ epsilon greedy에 맞게 행동 선택
+ new state s, reward r의 새 값을 얻음
+ Q 업데이트!
+Agent : class
+Q: dictionary
+epsilon : 시간에 따라 줄어들기
+file 분리
+
+ 
+ 
