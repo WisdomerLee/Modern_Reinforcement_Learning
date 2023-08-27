@@ -1,0 +1,42 @@
+Large state spaces : 상태가 매우 많은 상태들이 존재하는 경우
+계산하는 시간이 늘어날 수 밖에 없음!(몇 년 이상이 걸릴 것..)
+특히 빠른 시간에 계산해서 내놓아야 하는 상황에서는 이와 같은 상황은 큰 문제가 됨
+
+그런데.. 상태가 연속적인 경우가 존재하는 경우라면....? (각 상태들의 정의부터 무한히 늘어나게 됨...)
+tabular representation : 쓸 수 없음 : 모든 상태의 경우를 모두 판단하여 넣는 것인데 상태의 가짓수부터 무한하므로 미리 계산해 둘 수 없음
+
+Deep neural network를 쓸 것
+neural network의 힘은 universal function approximator 에서 나옴
+universal function approximator는 continuous function이나 몇몇으로 한정된 것들의 경우 접근할 수 있는 방법이 있음
+
+action value function인 Q가 state space에서 continuous function으로 존재함
+Q의 approximate(일부 단순화 하여 접근하는 방식)을 쓸 수 있음
+
+Neural Network 
+
+Perceptron이라는 개념부터 시작 : 1957년 Frank Rosenblatt라는 사람이 제안한 개념
+perceptron : linear classifier
+몇몇 입력을 받아 linear function으로 처리
+즉 각각의 입력마다 weight가 있어서 weight만큼씩 곱하여 모두 더한 값을 이용하여 activation으로 처리 : 그러면 입력한 것들이 어느 곳에 속하는 지 구분하게 됨
+
+함수는 bias와 weight와 input의 각 요소의 곱을 모두 더하는 함수
+class처리는 더한 값(sum)을 sigma처리
+sigma : unit step function
+bias : 입력이 없을 때를 대비한 경우
+weights : 각 요소들의 중요도
+
+perceptron은 두 가지의 classification에 쓰임, 그리고 선형적으로 두 가지를 구분하게 됨
+이런 perceptron들을 모두 연결한 neuron들 : neural network
+
+GPU : matrix representation
+선형적인 관계들은 행렬과 벡터의 곱으로 표현할 수 있음 : (feed forward)
+그리고 activation function은 특정 기준에 미치지 않으면 무시, 그 이상의 경우에는 특정 값들을 갖도록 처리함 (일종의 필터 개념)
+relu, sigmoid function 등이 있음
+
+input > layer로 전달되어 activated(활성화 됨)
+result > 입력으로 활성화된 layer가 연결된 layer들로 값을 전달하고 그 layer들이 활성화 됨
+> result 부분이 될 때까지 그 과정이 반복
+output(결과)는 몇몇 타겟의 cost와 비교
+weights : cost를 minimize하는 방향으로 변화하게 됨(back propagation)
+cost 를 최소화 하는 대표적인 방법이 gradient descent기법
+forward와 backward를 반복하여 network의 결과물이 cost를 최소로 하는 상태로 바뀔 때까지 반복
