@@ -1,0 +1,21 @@
+특정 화면의 그림을 convolutional neural network로 처리하는 방법...
+
+Convolutions:
+mathematical convolution 
+수학적인 convolution 방법을 쓰기 때문에 convolutional neural network라고 부름
+
+input layer에서 이미지를 처리할 때 convolution이 쓰임
+matrix multiplication
+행렬의 곱 형태로 처리함
+performs feature extraction
+특성을 뽑아낼 때 쓰임
+
+원본 그림이 있으면
+해당 그림의 특정 부분씩 잘라서 해당 영역에 있는 pixel의 색깔(숫자로 된 그 값들)중에 해당 영역을 대표하는 숫자를 하나씩 뽑아 보다 작은 차원의 숫자 행렬로 만듦
+그리고 나서 이 값들이 neural network의 input layer로 전달
+
+이것을 도입하려면..?
+layer 일부가 추가되고 utility function이 추가되는 것 뿐
+
+어떻게 동작하는가?
+이미지를 분석하여 frame단위로 들어오는 그림을 처리하여 들어오는 그림들을 비교, 대조하여 움직임을 알아냄
