@@ -1,0 +1,24 @@
+1.abstract를 읽기 (해당 논문에서 주장하는 것의 큰 틀부터 파악하기)
+2.그 뒤의 동작하는 부분 읽기
+3.prototype 부분의 자세한 설명을 보기
+4.반복하여 확인
+
+section은 label이 붙어있는지 확인하기 : 대부분은 붙어있음 : 아주 간단 요약
+abstract : 왜 , 무엇을, 결과를 먼저 확인하기
+intro : 영역과 그 내용을 아주 간략하게 요약해 둔 부분
+background : 수학적인 내용 : 매우 주의깊게 볼 것
+methods : 실험이 어떻게 진행되었는지 파악하기!
+Results : 그래서 원하는 결과가 나왔는지 확인
+Architecture & Algorithms : 우리가 넣을(적용할) 것이 이 중에 무엇인지 확인하기!
+Conclusion : 모든 것을 종합...
+Reference : 참조, 기존에 어떻게 되어있는지 확인할 때
+Appendix : 추가적인 부분들 추가로 확인하기
+
+항상 마음에 갖고 있을 것
+알고리즘은 무엇인지
+data structure는 무엇인지
+model의 architecture는 어떻게 되어있는지
+hyper parameter는 어떻게 구성되어있는지
+결과는 예상과 어떻게 차이나는지
+등을 염두에 두고 볼 것
+
