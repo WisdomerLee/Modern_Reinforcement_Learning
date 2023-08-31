@@ -1,0 +1,9 @@
+tensorflow2 : class based definition > keras.Model
+foward operation에 호출할 함수를 정의해야 함
+layer 정의에 activation도 지정할 수 있음
+Conv2D에서 특정 채널을 지정해야 함
+
+tensorflow2를 쓰는 agent에서는 
+model을 compile 하기 전에 반드시 최적화를 해야 함
+ops in GradientTape() : 저장 관리
+loss = keras.losses.MSE(y_pred, y_target)
